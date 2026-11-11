@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gingerbread Factory | Handmade gingerbread</title>
+<meta name="description" content="Handmade gingerbread cookies in small and big shapes, plus a cookie you decorate yourself. Baked by Ariffin, Cactus and Julian.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='%23c98f52'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%23fbf3e2' stroke-width='5' stroke-dasharray='.1 10' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="logo" href="#top">The Gingerbread Factory</a>
+    <nav id="nav" aria-label="Main">
+      <a href="#cookies">Our Cookies</a>
+      <a href="#decorate">Decorate Your Own</a>
+      <a href="#about">About Us</a>
+    </nav>
+    <button class="cart-btn" id="cartOpen" aria-label="Open cart">Cart <span id="cartCount" class="count">0</span></button>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Small-batch bakery</p>
+        <h1>The Gingerbread Factory</h1>
+        <p class="lead">Handmade gingerbread, made for everyone.</p>
+        <div class="btns">
+          <a class="btn" href="#cookies">Shop Cookies</a>
+          <a class="btn ghost" href="#decorate">Decorate Your Own</a>
+        </div>
+      </div>
+      <div class="hero-art" id="heroArt" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <h2>Favourites right now</h2>
+      <div class="grid" id="featured"></div>
+    </div>
+  </section>
+
+  <section class="section" id="cookies">
+    <div class="wrap">
+      <h2>Our Cookies</h2>
+      <p class="sub">Every cookie is cut, baked and iced by hand. Ten shapes, two sizes.</p>
+      <div class="divider"></div>
+      <h3>Small Cookies <span>$2 each</span></h3>
+      <div class="grid" id="small"></div>
+      <h3 class="gap">Big Cookies <span>$3 each</span></h3>
+      <div class="grid" id="big"></div>
+    </div>
+  </section>
+
+  <section class="section tint" id="decorate">
+    <div class="wrap">
+      <h2>Decorate Your Own</h2>
+      <div class="divider"></div>
+      <div class="builder">
+        <div class="preview" id="preview"></div>
+        <div class="panel">
+          <p class="price-tag">$4</p>
+          <p>You get a plain baked gingerbread cookie, plus icing and toppings, to decorate at home. Pick your shape and what you’d like in the bag. It’s a good one for kids, rainy afternoons and gifts.</p>
+          <fieldset><legend>Shape</legend><div class="opts" id="optShape"></div></fieldset>
+          <fieldset><legend>Icing</legend><div class="opts" id="optIcing"></div></fieldset>
+          <fieldset><legend>Extras</legend><div class="opts" id="optTops"></div></fieldset>
+          <button class="btn" id="customAdd">Customize Your Cookie · Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap narrow">
+      <h2>About Us</h2>
+      <div class="divider"></div>
+      <p>The Gingerbread Factory is run by three co-founders: <strong>Ariffin, Cactus and Julian</strong>. We started with one batch of gingerbread and a lot of opinions about how thick a cookie should be.</p>
+      <p>We still make everything by hand. The shapes are cut one at a time and the icing is piped by us, so no two cookies are exactly alike. We think that’s part of the charm.</p>
+      <p>Whether you want a small snail to go with your tea or a big moose to share, we hope you enjoy eating them as much as we enjoy baking them.</p>
+      <p class="sign">Ariffin, Cactus &amp; Julian</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <strong>The Gingerbread Factory</strong>
+    <span>Handmade gingerbread, made for everyone.</span>
+    <span>&copy; 2026 Ariffin, Cactus &amp; Julian</span>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="drawer-head"><h2>Your Cart</h2><button class="x" id="cartClose" aria-label="Close cart">&times;</button></div>
+  <div class="drawer-body" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+    <div class="row total"><span>Total</span><span id="total">$0.00</span></div>
+    <button class="btn full" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<dialog id="checkout">
+  <form method="dialog" id="checkoutForm">
+    <h2>Checkout</h2>
+    <p class="note">This is a demo checkout. No payment is taken and no order is placed.</p>
+    <label>Name<input required name="name" autocomplete="name"></label>
+    <label>Email<input required type="email" name="email" autocomplete="email"></label>
+    <label>Pickup or delivery note<textarea name="note" rows="2"></textarea></label>
+    <div class="row total"><span>Total</span><span id="coTotal"></span></div>
+    <div class="btns"><button type="button" class="btn ghost" id="coCancel">Back</button><button class="btn" type="submit">Place Demo Order</button></div>
+  </form>
+  <div id="done" hidden>
+    <h2>Thank you!</h2>
+    <p id="doneMsg"></p>
+    <button class="btn" id="doneClose">Close</button>
+  </div>
+</dialog>
+
+<script src="main.js"></script>
+</body>
+</html>
